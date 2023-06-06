@@ -98,6 +98,8 @@
 
 ## SOLUCION Y RESULTADOS
 
+Link del repositorio: https://github.com/EliasVizG/pw2_lab4_EliasVizcarra/tree/main  
+
 Para poder desarrollar este trabajo primero se debe entender que las imagenes de ajedrez estan compuestas por listas de strings y sabiendo esto debemos completar los metodos de picture.py, los cuales en su mayoria consisten en concatenar strings de las listas o agregar mas strings como elementos a las listas.  
 El unico metodo diferente es el de negative(), cuya funcion es invertir los colores de las imagenes a partir de los caracteres que las componen y utilizando un metodo ya dado *_invColor()*:  
     ```
