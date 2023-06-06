@@ -183,7 +183,7 @@ Para que se ilustre correctamente el tablero con cuadros blancos y negros se uso
 #
 
 ## CUESTIONARIO
--   ¿Para qué sirve el directorio __pycache__?
+-   ¿Para qué sirve el directorio __pycache__?  
 __pycache__ es un directorio creado por el intérprete de Python cuando importa un módulo. Este contiene el bytecode compilado del módulo, que se puede utilizar para acelerar las importaciones futuras del mismo módulo. El bytecode es específico de la versión de Python que se usó para generarlo.
 Esto solo sucede cuando Python se ejecuta en una versión superior a la 3.2. 
 
