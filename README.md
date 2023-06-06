@@ -98,8 +98,8 @@
 
 ## SOLUCION Y RESULTADOS
 
-Para poder desarrollar este trabajo primero se debe entender que las imagenes de ajedrez estan compuestas por listas de strings y sabiendo esto debemos completar los metodos de picture.py, los cuales en su mayoria consisten en concatenar strings de las listas o agregar mas strings como elementos a las listas.
-El unico metodo diferente es el de negative(), cuya funcion es invertir los colores de las imagenes a partir de los caracteres que las componen y utilizando un metodo ya dado _invColor():
+Para poder desarrollar este trabajo primero se debe entender que las imagenes de ajedrez estan compuestas por listas de strings y sabiendo esto debemos completar los metodos de picture.py, los cuales en su mayoria consisten en concatenar strings de las listas o agregar mas strings como elementos a las listas.  
+El unico metodo diferente es el de negative(), cuya funcion es invertir los colores de las imagenes a partir de los caracteres que las componen y utilizando un metodo ya dado *_invColor()*:  
     ```
     def negative(self):
     """ Devuelve un negativo de la imagen """
@@ -113,72 +113,72 @@ El unico metodo diferente es el de negative(), cuya funcion es invertir los colo
     return Picture(negative)
     ```
 
-Este metodo nos permitira volver las piezas de ajedrez negras y tambien los cuadros del tablero oscuros.
-Tambien es importante saber que todos los metodos deben devolver un objeto Picture() en lugar de una lista para que sea posible la concatenacion de varios metodos al memento de invocar la funcion draw() ya que esta funcion solo debe ser invocada una ves por ejercicio.
+Este metodo nos permitira volver las piezas de ajedrez negras y tambien los cuadros del tablero oscuros.  
+Tambien es importante saber que todos los metodos deben devolver un objeto *Picture()* en lugar de una lista para que sea posible la concatenacion de varios metodos al memento de invocar la funcion *draw()* ya que esta funcion solo debe ser invocada una ves por ejercicio.  
 
-Con estos metodos y consideraciones podemos proceder a realizar los ejercicios:
+Con estos metodos y consideraciones podemos proceder a realizar los ejercicios:  
 a) 
-    ```
-    draw(knight.join(knight.negative()).under(knight.negative().join(knight)))
-    ```
-    (a) (img/img1.png)
+        ```
+        draw(knight.join(knight.negative()).under(knight.negative().join(knight)))
+        ```
+    (a) ![](img/img1.png)
 
 b) 
-    ```
-    draw(knight.join(knight.negative()).under(knight.join(knight.negative()).verticalMirror()))
-    ```
-    (b) (img/img2.png)
+        ```
+        draw(knight.join(knight.negative()).under(knight.join(knight.negative()).verticalMirror()))
+        ```
+    (b) ![](img/img2.png)
 
 c) 
-    ```
-    draw(queen.horizontalRepeat(4))
-    ```
-    (c) (img/img3.png)
+        ```
+        draw(queen.horizontalRepeat(4))
+        ```
+    (c) ![](img/img3.png)
 
 d) 
-    ```
-    draw(square.join(square.negative()).horizontalRepeat(4))
-    ```
-    (d) (img/img4.png)
+        ```
+        draw(square.join(square.negative()).horizontalRepeat(4))
+        ```
+    (d) ![](img/img4.png)
 
 e) 
-    ```
-    draw(square.join(square.negative()).horizontalRepeat(4).verticalMirror())
-    ```
-    (e) (img/img5.png)
+        ```
+        draw(square.join(square.negative()).horizontalRepeat(4).verticalMirror())
+        ```
+    (e) ![](img/img5.png)
 
 f) 
-    ```
-    draw(square.join(square.negative()).horizontalRepeat(4).under(square.join(square.negative()).horizontalRepeat(4).verticalMirror()).verticalRepeat(2))
-    ```
-    (f) (img/img6.png)
+        ```
+        draw(square.join(square.negative()).horizontalRepeat(4).under(square.join(square.negative()).horizontalRepeat(4).verticalMirror()).verticalRepeat(2))
+        ```
+    (f) ![](img/img6.png)
 
-g) En este ultimo ejercicio nos encontramos con un nuevo problema, ¿Como poner las piezas de ajedres encima de los cuadros del tablero si son dos imagenes diferentes?
-    Para resolver esto se creo un nuevo metodo que reemplazaba el fondo azul de las imagenes por el gris claro o blanco en el tablero:
+g) En este ultimo ejercicio nos encontramos con un nuevo problema, ¿Como poner las piezas de ajedres encima de los cuadros del tablero si son dos imagenes diferentes?  
+    Para resolver esto se creo un nuevo metodo que reemplazaba el fondo azul de las imagenes por el gris claro o blanco en el tablero:  
 
-    ```
-    def AddBackground(self):
-    """Agrega fondo color LIGHTGRAY a las piezas de ajedrez"""
-    backgrounded = []
-    for line in self.img:
-      backgrounded.append(line.replace(" ","_"))
-    
-    return Picture(backgrounded)
-    ```
+        ```
+        def AddBackground(self):
+        """Agrega fondo color LIGHTGRAY a las piezas de ajedrez"""
+        backgrounded = []
+        for line in self.img:
+        backgrounded.append(line.replace(" ","_"))
+        
+        return Picture(backgrounded)
+        ```
 
-    Con este nuevo metodo ya tenemos todas las herramientas necesarias para completar el ultimo ejercicio:
+Con este nuevo metodo ya tenemos todas las herramientas necesarias para completar el ultimo ejercicio:  
 
-    ```
-    draw(rock.join(knight.AddBackground()).join(bishop).join(queen.AddBackground()).join(king).join(bishop.AddBackground()).join(knight).join(rock.AddBackground()).negative().AddBackground()
-     .under(pawn.AddBackground().join(pawn).negative().AddBackground().horizontalRepeat(4))
-     .under(square.join(square.negative()).horizontalRepeat(4)
-            .under(square.join(square.negative()).horizontalRepeat(4).verticalMirror()).verticalRepeat(2))
-            .under(pawn.join(pawn.negative().AddBackground().negative()).AddBackground().horizontalRepeat(4))
-            .under(rock.negative().AddBackground().negative().join(knight).join(bishop.negative().AddBackground().negative()).join(queen).join(king.negative().AddBackground().negative()).join(bishop).join(knight.AddBackground()).join(rock).AddBackground()))
-    ```
-    (f) (img/img7.png)
+        ```
+        draw(rock.join(knight.AddBackground()).join(bishop).join(queen.AddBackground()).join(king).join(bishop.AddBackground()).join(knight).join(rock.AddBackground()).negative().AddBackground()
+        .under(pawn.AddBackground().join(pawn).negative().AddBackground().horizontalRepeat(4))
+        .under(square.join(square.negative()).horizontalRepeat(4)
+                .under(square.join(square.negative()).horizontalRepeat(4).verticalMirror()).verticalRepeat(2))
+                .under(pawn.join(pawn.negative().AddBackground().negative()).AddBackground().horizontalRepeat(4))
+                .under(rock.negative().AddBackground().negative().join(knight).join(bishop.negative().AddBackground().negative()).join(queen).join(king.negative().AddBackground().negative()).join(bishop).join(knight.AddBackground()).join(rock).AddBackground()))
+        ```
+    (g) ![](img/img7.png)
 
-    Para que se ilustre correctamente el tablero con cuadros blancos y negros se uso el metodo negative() en algunas imagenes antes de agregarles el fondo que de por si es claro, mientras que a otras se uso negative() luego de agregar el fondo para que de esta manera el fondo tambien se invierta.
+Para que se ilustre correctamente el tablero con cuadros blancos y negros se uso el metodo *negative()* en algunas imagenes antes de agregarles el fondo que de por si es claro, mientras que a otras se uso *negative()* luego de agregar el fondo para que de esta manera el fondo tambien se invierta.  
 
 #
 
