@@ -63,10 +63,23 @@ class Picture:
     """ Devuelve una nueva figura repitiendo la figura actual debajo
         la cantidad de veces que indique el valor de n """
     return Picture(self.img * n)
-
+  
+  def AddBackground(self):
+    """Agrega fondo color LIGHTGRAY a las piezas de ajedrez"""
+    backgrounded = []
+    for line in self.img:
+      backgrounded.append(line.replace(" ","_"))
+    
+    return Picture(backgrounded)
+  
   #Extra: Sólo para realmente viciosos 
   def rotate(self):
     """Devuelve una figura rotada en 90 grados, puede ser en sentido horario
     o antihorario"""
-    return Picture(None)
+    rotated = []
+    for i in range(len(self.img[0])):
+      line = ''
+      for j in reversed(range(len(self.img))):
+        line += self.img[j][i]
+      rotated.append(line)
 
