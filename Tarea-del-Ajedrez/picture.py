@@ -56,13 +56,13 @@ class Picture:
         la cantidad de veces que indique el valor de n """
     hrepeat = []
     for i in range(len(self.img)):
-      hrepeat.append(self.img[i] * (n + 1))
+      hrepeat.append(self.img[i] * n)
     return Picture(hrepeat)
 
   def verticalRepeat(self, n):
     """ Devuelve una nueva figura repitiendo la figura actual debajo
         la cantidad de veces que indique el valor de n """
-    return Picture(self.img * (n + 1))
+    return Picture(self.img * n)
 
   #Extra: Sólo para realmente viciosos 
   def rotate(self):
