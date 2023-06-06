@@ -60,6 +60,8 @@ class Picture:
     return hrepeat
 
   def verticalRepeat(self, n):
+    """ Devuelve una nueva figura repitiendo la figura actual debajo
+        la cantidad de veces que indique el valor de n """
     return self.img * (n + 1)
 
   #Extra: Sólo para realmente viciosos 
