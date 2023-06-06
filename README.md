@@ -32,10 +32,10 @@
 <tr><td>ASIGNATURA:</td><td colspan="5">Programación Web 2</td></tr>
 <tr><td>TÍTULO DE LA PRÁCTICA:</td><td colspan="5">Python</td></tr>
 <tr>
-<td>NÚMERO DE PRÁCTICA:</td><td>04</td><td>AÑO LECTIVO:</td><td>2022 A</td><td>NRO. SEMESTRE:</td><td>III</td>
+<td>NÚMERO DE PRÁCTICA:</td><td>04</td><td>AÑO LECTIVO:</td><td>2023 A</td><td>NRO. SEMESTRE:</td><td>III</td>
 </tr>
 <tr>
-<td>FECHA INICIO::</td><td>16-May-2022</td><td>FECHA FIN:</td><td>20-May-2022</td><td>DURACIÓN:</td><td>04 horas</td>
+<td>FECHA INICIO:</td><td>30-May-2023</td><td>FECHA FIN:</td><td>06-Jun-2023</td><td>DURACIÓN:</td><td>04 horas</td>
 </tr>
 <tr><td colspan="6">RECURSOS:
     <ul>
@@ -47,6 +47,13 @@
 <tr><td colspan="6">DOCENTES:
 <ul>
 <li>Richart Smith Escobedo Quispe - rescobedoq@unsa.edu.pe</li>
+<li>Anibal Sardon </li>
+</ul>
+</td>
+</<tr>
+<tr><td colspan="6">Alumnos:
+<ul>
+<li>Vizcarra Gallegos Elias Eduardo - evizcarraga@unsa.edu.pe</li>
 </ul>
 </td>
 </<tr>
@@ -89,257 +96,96 @@
 
 </details>
 
-## CONTENIDO DE LA GUÍA
+## SOLUCION Y RESULTADOS
 
-### MARCO CONCEPTUAL
-
--   https://www.w3schools.com/python/python_reference.asp
--   https://docs.python.org/3/tutorial/
-
--   Virtual Environment
-    -   La reutilización de código(paquetes, librerias, plugins, etc.) de terceros nos permite construir software más complejo. 
-    -   NodeJS usa paquetes instalados en el directorio de trabajo y no de manera global, registrando estos paquetes en sus versiones en el archivo package.json. 
-    -   Por eso este modo de trabajo nos permite tener distintos proyectos con distintas bibliotecas, de distintas versiones, en la misma máquina, sin que existan conflictos. 
-    -   Para compartir el proyecto se debe compartir el archivo package.json y luego llamar a "npm install" para instalar las bibliotecas adecuadas para el proyecto.
-    -   Java usa ant y maven, junto con archivos xml para realizar estas tareas.
-    -   Python tiene virtualenv, para crear este espacio de trabajo.
-    -   Python utiliza el manejador de paquetes pip.
-
--   Utilizar Python
-    -   Para un instalación local en sistemas operativos MS Windows utilice: https://www.python.org/downloads/windows/
-    -   Tambien ud puede probar código en herramientas online: https://www.programiz.com/python-programming/online-compiler/
-
-    -   Python en Debian GNU/Linux:
-        -   Debian Linux viene con Python 3 y Python 2 preinstalados.
-            ```sh
-            python3 --version
-            Python 3.9.2
-            ```
-        -   Instalemos pip, una herramienta que instalará y administrará los paquetes de programación que queramos usar en nuestros proyectos de desarrollo. 
-            ```sh
-            sudo apt-get install -y python3-pip
-            ```
-        -   Paquetes y herramientas de desarrollo más para instalar para garantizar que tengamos una configuración sólida para nuestro entorno de programación:
-            ```sh
-            sudo apt-get install build-essential libssl-dev libffi-dev python3-dev
-            ```
-    -   Configurar un entorno virtual:
-        - Los entornos virtuales permiten tener un espacio aislado en los proyectos Python
-        -   Garantizando que cada proyecto pueda tener su propio conjunto de dependencias que no interrumpirán a otros proyectos.
-        -   Manejando diferentes versiones de los paquetes. Esto es especialmente importante cuando se trabaja con paquetes de terceros.
-        -   Puede varios entornos de programación. 
-        -   Cada entorno es un directorio en la que se ubicaran sus scripts.
-        -   Usaremos el módulo venv , que es parte de la biblioteca estándar de Python.
-        -   Instalemos venv escribiendo:
-            ```sh
-            sudo apt install -y python3-venv
-            ```
-        -   Para crear un ambiente elija en qué directorio.
-            ```sh
-            mkdir -p ~/unsa/pw2/labs/lab04/my_env
-            cd ~/unsa/pw2/labs/lab04/my_env
-            ```
-        -   En el directorio crea un entorno virtual ejecutando el siguiente comando:
-            ```sh
-            virtualenv -p python3 .
-            mkdir -p ~/unsa/pw2/labs/lab04/my_env/src
-            cd ~/unsa/pw2/labs/lab04/my_env/src
-            ```
-        -   Esto es lo que sucedio:
-            ```sh
-            tree -L 2 ../
-            ```
-            ```sh
-            .
-            ├── bin
-            │   ├── activate
-            │   ├── activate.csh
-            │   ├── activate.fish
-            │   ├── activate.nu
-            │   ├── activate.ps1
-            │   ├── activate_this.py
-            │   ├── deactivate.nu
-            │   ├── pip
-            │   ├── pip3
-            │   ├── pip-3.9
-            │   ├── pip3.9
-            │   ├── python -> /usr/bin/python3
-            │   ├── python3 -> python
-            │   ├── python3.9 -> python
-            │   ├── wheel
-            │   ├── wheel3
-            │   ├── wheel-3.9
-            │   └── wheel3.9
-            ├── lib
-            │   └── python3.9
-            ├── pyvenv.cfg
-            └── src
-            ```
-        -   Ejecute el script de activación para activar el entorno virtual:
-            ```sh
-            source ../bin/activate
-            ```
-            ```sh
-            (my_env) user@localhost:$
-            ```
-
-        -   Cree el "Hola Mundo" en su entorno de programación:
-            ```sh
-            vim hello.py
-            ```
-            ```sh
-            print("Hello, World!")
-            ```
-            ```sh
-            python3 hello.py
-            ```
-        -   Para salir del entorno virtual:
-            ```sh
-            deactivate
-            ```
-
-## EJERCICIO RESUELTO POR EL DOCENTE
-
--   Active su entorno virtual
-    ```sh
-    source ../bin/activate
+Para poder desarrollar este trabajo primero se debe entender que las imagenes de ajedrez estan compuestas por listas de strings y sabiendo esto debemos completar los metodos de picture.py, los cuales en su mayoria consisten en concatenar strings de las listas o agregar mas strings como elementos a las listas.
+El unico metodo diferente es el de negative(), cuya funcion es invertir los colores de las imagenes a partir de los caracteres que las componen y utilizando un metodo ya dado _invColor():
     ```
--   Ejercicios sobre matrices de tamaño NxN:
-
-    -   Determine si una matriz es escalar:
-        ```sh
-        vim esEscalar.py
-        ```
-        ```sh
-        def esEscalar(m):
-            d = m[0][0]
-            for i in range(len(m)):
-                for j in range(len(m)):
-                    if i != j:
-                        if m[i][j] != 0:
-                            print(m[i][j])
-                            return False
-                    elif m[i][j] != d:
-                        print(m[i][j])
-                        return False
-            return True
-        ```
-        ```sh
-        vim test_esEscalar.py
-        ```
-        ```sh
-        import esEscalar as fu
-
-        def prueba(M):
-            if (fu.esEscalar(M)):
-                print("Si es escalar")
-            else:
-                print("No es escalar")
-
-        #Z = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-        #Z = [[1, 2, 3], [4, 1, 6], [7, 8, 1]]
-        Z = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
-
-        prueba(Z)
-        ```
-
-    -   Determine si una matriz es unitaria:
-         ```sh
-        vim esUnitaria.py
-        ```
-        ```sh
-        import esEscalar as fu
-
-        def esUnitaria(m):
-            return m[0][0] == 1 and fu.esEscalar(m)
-        ```
-        ```sh
-        vim test_esUnitaria.py
-        ```
-        ```sh
-        import esUnitaria as fu
-
-        def prueba(M):
-            if (fu.esUnitaria(M)):
-                print("Si es unitaria")
-            else:
-                print("No es unitaria")
-
-        #Z = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-        #Z = [[1, 2, 3], [4, 1, 6], [7, 8, 1]]
-        Z = [[2, 0, 0], [0, 2, 0], [0, 0, 2]]
-        #Z = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
-
-        prueba(Z)
-        ```
-
-#
-
-## EJERCICIOS PROPUESTOS
--   En esta tarea usted pondrá en práctica sus conocimientos de programación en Python para dibujar un tablero de Ajedrez. 
--   La parte gráfica ya está programada, usted sólo tendrá que concentrarse en las estructuras de datos subyacentes.
--   Con el código proporcionado usted dispondrá de varios objetos de tipo Picture para poder realizar su tarea:
-    ![Fichas de ajedrez](imagenes/picture.png)
--   Estos objetos estarán disponibles importando la biblioteca: [chessPictures](Tarea-del-Ajedrez/chessPictures.py) y estarán internamente representados con arreglos de strings que podrá revisar en el archivo [pieces.py](Tarea-del-Ajedrez/pieces.py)
--   La clase [Picture](Tarea-del-Ajedrez/picture.py) tiene un sólo atributo: el arreglo de strings img, el cual contendrá la representación en caracteres de la figura que se desea dibujar. 
--   La clase [Picture](Tarea-del-Ajedrez/picture.py) ya cuenta con una función implementada, no debe modificarla, pero si puede usarla para implementar sus otras funciones:
-    -   _invColor: recibe un color como un caracter de texto y devuelve su color negativo, también como texto, deberá revisar el archivo [colors.py](Tarea-del-Ajedrez/colors.py) para conocer los valores negativos de cada caracter.
-
--   La clase [Picture](Tarea-del-Ajedrez/picture.py) contará además con varios métodos que usted deberá implementar:
-    1.  verticalMirror: Devuelve el espejo vertical de la imagen
-    2.  horizontalMirror: Devuelve el espejo horizontal de la imagen
-    3.  negative: Devuelve un negativo de la imagen
-    4.  join: Devuelve una nueva figura poniendo la figura del argumento al lado derecho de la figura actual
-    5.  up: Devuelve una nueva figura poniendo la figura recibida como argumento, encima de la figura actual
-    6.  under: Devuelve una nueva figura poniendo la figura recibida como argumento, sobre la figura actual
-    7.  horizontalRepeat, Devuelve una nueva figura repitiendo la figura actual al costado la cantidad de veces que indique el valor de n
-    8.  verticalRepeat Devuelve una nueva figura repitiendo la figura actual debajo, la cantidad de veces que indique el valor de n
-
--   Tenga en cuenta que para implementar todos estos métodos, sólo deberá trabajar sobre la representación interna de un Picture, es decir su atributo img.
-
--   Para dibujar una objeto Picture bastará importar el método draw de la biblioteca interpreter y usarlo de la siguiente manera:
-    ```sh
-    $ python3
-    Python 3.9.2 (default, Feb 28 2021, 17:03:44) 
-    [GCC 10.2.1 20210110] on linux
-    Type "help", "copyright", "credits" or "license" for more information.
+    def negative(self):
+    """ Devuelve un negativo de la imagen """
+    negative = []
+    for line in self.img:
+      new_line = ''
+      for c in line:
+        new_line += self._invColor(c)
+      negative.append(new_line)
+    
+    return Picture(negative)
     ```
-    ```sh
-    >>> from chessPictures import *
-    >>> from interpreter import draw
-    pygame 1.9.6
-    Hello from the pygame community. https://www.pygame.org/contribute.html
-    >>> draw(rock)
+
+Este metodo nos permitira volver las piezas de ajedrez negras y tambien los cuadros del tablero oscuros.
+Tambien es importante saber que todos los metodos deben devolver un objeto Picture() en lugar de una lista para que sea posible la concatenacion de varios metodos al memento de invocar la funcion draw() ya que esta funcion solo debe ser invocada una ves por ejercicio.
+
+Con estos metodos y consideraciones podemos proceder a realizar los ejercicios:
+a) 
     ```
-    ![PyGame](imagenes/pygame_rock.png)
+    draw(knight.join(knight.negative()).under(knight.negative().join(knight)))
+    ```
+    (a) (img/img1.png)
 
--   Ejercicios:
+b) 
+    ```
+    draw(knight.join(knight.negative()).under(knight.join(knight.negative()).verticalMirror()))
+    ```
+    (b) (img/img2.png)
 
-    -   Para resolver los siguientes ejercicios sólo está permitido usar ciclos, condicionales, definición de listas por comprensión, sublistas, map, join, (+), lambda, zip, append, pop, range.
+c) 
+    ```
+    draw(queen.horizontalRepeat(4))
+    ```
+    (c) (img/img3.png)
 
-        1.  Implemente los métodos de la clase Picture. Se recomienda que implemente la clase picture por etapas, probando realizar los dibujos que se muestran en la siguiente preguntas.
-        2.  Usando únicamente los métodos de los objetos de la clase Picture dibuje las siguientes figuras (invoque a draw):
+d) 
+    ```
+    draw(square.join(square.negative()).horizontalRepeat(4))
+    ```
+    (d) (img/img4.png)
 
-            *    (a) ![(a)](imagenes/ejercicio_02_a.png)
+e) 
+    ```
+    draw(square.join(square.negative()).horizontalRepeat(4).verticalMirror())
+    ```
+    (e) (img/img5.png)
 
-            *    (b) ![(b)](imagenes/ejercicio_02_b.png)
+f) 
+    ```
+    draw(square.join(square.negative()).horizontalRepeat(4).under(square.join(square.negative()).horizontalRepeat(4).verticalMirror()).verticalRepeat(2))
+    ```
+    (f) (img/img6.png)
 
-            *    (c) ![(c)](imagenes/ejercicio_02_c.png)
+g) En este ultimo ejercicio nos encontramos con un nuevo problema, ¿Como poner las piezas de ajedres encima de los cuadros del tablero si son dos imagenes diferentes?
+    Para resolver esto se creo un nuevo metodo que reemplazaba el fondo azul de las imagenes por el gris claro o blanco en el tablero:
 
-            *    (d) ![(d)](imagenes/ejercicio_02_d.png)
+    ```
+    def AddBackground(self):
+    """Agrega fondo color LIGHTGRAY a las piezas de ajedrez"""
+    backgrounded = []
+    for line in self.img:
+      backgrounded.append(line.replace(" ","_"))
+    
+    return Picture(backgrounded)
+    ```
 
-            *    (e) ![(e)](imagenes/ejercicio_02_e.png)
+    Con este nuevo metodo ya tenemos todas las herramientas necesarias para completar el ultimo ejercicio:
 
-            *    (f) ![(f)](imagenes/ejercicio_02_f.png)
+    ```
+    draw(rock.join(knight.AddBackground()).join(bishop).join(queen.AddBackground()).join(king).join(bishop.AddBackground()).join(knight).join(rock.AddBackground()).negative().AddBackground()
+     .under(pawn.AddBackground().join(pawn).negative().AddBackground().horizontalRepeat(4))
+     .under(square.join(square.negative()).horizontalRepeat(4)
+            .under(square.join(square.negative()).horizontalRepeat(4).verticalMirror()).verticalRepeat(2))
+            .under(pawn.join(pawn.negative().AddBackground().negative()).AddBackground().horizontalRepeat(4))
+            .under(rock.negative().AddBackground().negative().join(knight).join(bishop.negative().AddBackground().negative()).join(queen).join(king.negative().AddBackground().negative()).join(bishop).join(knight.AddBackground()).join(rock).AddBackground()))
+    ```
+    (f) (img/img7.png)
 
-            *    (g) ![(g)](imagenes/ejercicio_02_g.png)
+    Para que se ilustre correctamente el tablero con cuadros blancos y negros se uso el metodo negative() en algunas imagenes antes de agregarles el fondo que de por si es claro, mientras que a otras se uso negative() luego de agregar el fondo para que de esta manera el fondo tambien se invierta.
 
 #
 
 ## CUESTIONARIO
--   ¿Qué son los archivos *.pyc?
 -   ¿Para qué sirve el directorio __pycache__?
--   ¿Cuáles son los usos y lo que representa el subguión en Python?
+__pycache__ es un directorio creado por el intérprete de Python cuando importa un módulo. Este contiene el bytecode compilado del módulo, que se puede utilizar para acelerar las importaciones futuras del mismo módulo. El bytecode es específico de la versión de Python que se usó para generarlo.
+Esto solo sucede cuando Python se ejecuta en una versión superior a la 3.2. 
 
 #
 
