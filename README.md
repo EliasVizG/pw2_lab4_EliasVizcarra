@@ -120,37 +120,37 @@ Con estos metodos y consideraciones podemos proceder a realizar los ejercicios:
 a) 
         ```
         draw(knight.join(knight.negative()).under(knight.negative().join(knight)))
-        ```
+        ```  
 ![(a)](img/img1.PNG)
 
 b) 
         ```
         draw(knight.join(knight.negative()).under(knight.join(knight.negative()).verticalMirror()))
-        ```
+        ```  
 ![(b)](img/img2.PNG)
 
 c) 
         ```
         draw(queen.horizontalRepeat(4))
-        ```
+        ```  
 ![(c)](img/img3.PNG)
 
 d) 
         ```
         draw(square.join(square.negative()).horizontalRepeat(4))
-        ```
+        ```  
 ![(d)](img/img4.PNG)
 
 e) 
         ```
         draw(square.join(square.negative()).horizontalRepeat(4).verticalMirror())
-        ```
+        ```  
 ![(e)](img/img5.PNG)
 
 f) 
         ```
         draw(square.join(square.negative()).horizontalRepeat(4).under(square.join(square.negative()).horizontalRepeat(4).verticalMirror()).verticalRepeat(2))
-        ```
+        ```  
 ![(f)](img/img6.PNG)
 
 g) En este ultimo ejercicio nos encontramos con un nuevo problema, ¿Como poner las piezas de ajedres encima de los cuadros del tablero si son dos imagenes diferentes?  
@@ -175,7 +175,7 @@ Con este nuevo metodo ya tenemos todas las herramientas necesarias para completa
                 .under(square.join(square.negative()).horizontalRepeat(4).verticalMirror()).verticalRepeat(2))
                 .under(pawn.join(pawn.negative().AddBackground().negative()).AddBackground().horizontalRepeat(4))
                 .under(rock.negative().AddBackground().negative().join(knight).join(bishop.negative().AddBackground().negative()).join(queen).join(king.negative().AddBackground().negative()).join(bishop).join(knight.AddBackground()).join(rock).AddBackground()))
-        ```
+        ```  
 ![(g)](img/img7.PNG)
 
 Para que se ilustre correctamente el tablero con cuadros blancos y negros se uso el metodo *negative()* en algunas imagenes antes de agregarles el fondo que de por si es claro, mientras que a otras se uso *negative()* luego de agregar el fondo para que de esta manera el fondo tambien se invierta.  
